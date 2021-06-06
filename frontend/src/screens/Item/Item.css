@@ -1,0 +1,50 @@
+#passage{
+    margin-left: 10px;
+}
+
+#picture{
+    border-radius: 4px;
+}
+
+.cart{
+    transition: all 0.6s ease;
+    padding: 10px;
+    border: 2px solid #222;
+    margin: 5px;
+    font-weight: bold;
+    background: #222;
+    color: #fff;
+    border-radius: 1.3px;
+}
+
+.wishlist{
+    transition: all 0.6s ease;
+    padding: 10px;
+    border: 2px solid #222;
+    margin: 5px;
+    font-weight: bold;
+    background: #222;
+    color: #fff;
+    border-radius: 1.3px;
+
+}
+
+.wishlist:hover{
+    transition: all 0.6s ease;
+    border: 2px solid #fff; 
+    background: #fff;
+    border: 2px solid #000;
+    color: #000;
+    border-radius: 1.3px;
+    transform: translateY(-10px);
+}
+
+.cart:hover{
+    transition: all 0.6s ease;
+    border: 2px solid #fff; 
+    background: #fff;
+    border: 2px solid #000;
+    color: #000;
+    border-radius: 1.3px;
+    transform: translateY(-10px);
+}

@@ -1,0 +1,121 @@
+#title:hover{
+    text-decoration: none;
+    text-shadow: 1.7rem;
+}
+
+#images:hover{
+    transition: 0.6s ease;
+    filter: grayscale(50%);
+}
+
+@media(min-width: 1024px){
+    #images{
+        height: 500px;
+        width: 430px;
+    }
+}
+
+@media(min-width: 768px){
+    #images{
+        height: 370px;
+        width: 345px;
+    }
+}
+
+@media(min-width: 810px){
+    #images{
+        height: 370px;
+        width: 370px;
+    }
+}
+
+@media(min-width: 870px){
+    #images{
+        height: 370px;
+        width: 380px;
+    }
+}
+
+@media(min-width: 910px){
+    #images{
+        height: 390px;
+        width: 400px;
+    }
+}
+
+@media(min-width: 950px){
+    #images{
+        height: 320px;
+        width: 280px;
+    }
+}
+
+@media(min-width: 1024px){
+    #images{
+        height: 320px;
+        width: 295px;
+    }
+}
+
+@media(min-width: 1139px){
+    #images{
+        height: 320px;
+        width: 327px;
+    }
+}
+
+@media(min-width: 1200px){
+    #images{
+        height: 260px;
+        width: 250px;
+    }
+}
+
+@media(min-width: 1201px){
+    #images{
+        height: 260px;
+        width: 250px;
+    }
+}
+
+@media(min-width: 1313px){
+    #images{
+        height: 290px;
+        width: 280px;
+    }
+}
+
+@media(min-width: 1440px){
+    #images{
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media(min-width: 1495px){
+    #images{
+        height: 320px;
+        width: 320px;
+    }
+}
+
+@media(min-width: 1612px){
+    #images{
+        height: 400px;
+        width: 350px;
+    }
+}
+
+@media(min-width: 1792px){
+    #images{
+        height: 430px;
+        width: 430px;
+    }
+}
+
+@media(min-width: 2560px){
+    #images{
+        height: 600px;
+        width: 620px;
+    }
+}

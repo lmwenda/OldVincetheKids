@@ -1,0 +1,16 @@
+// import React from 'react';                                                                             
+// import { render, screen } from '@testing-library/react';
+// import App from './App';
+
+// Test Suites Examples
+// test('renders learn react link', () => {
+//   render(<App />);
+//   const linkElement = screen.getByText(/learn punks/i);
+//   expect(linkElement).toBeInTheDocument();
+// });
+
+// test('renders react instructions', () => {
+//   render(<App />);
+//   const instructionElement = screen.getByText("Edit src/App.tsx and save to reload.");
+//   expect(instructionElement).toBeInTheDocument();
+// })
