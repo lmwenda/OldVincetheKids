@@ -18,6 +18,7 @@ function SlideShow(){
                     className="d-block w-100 h-100"
                     src={Image1}
                     style={{borderRadius: '4px'}}
+                    alt=""
                     />
                 </Carousel.Item>
 
@@ -26,6 +27,7 @@ function SlideShow(){
                     className="d-block w-100"
                     src={Image2}
                     style={{borderRadius: '4px'}}
+                    alt=""
                     />
                 </Carousel.Item>
 
@@ -35,6 +37,7 @@ function SlideShow(){
                     src={Image3}
                     id="large-image"
                     style={{borderRadius: '4px'}}
+                    alt=""
                     />
                 </Carousel.Item>
 
@@ -44,6 +47,7 @@ function SlideShow(){
                     src={Image4}
                     id="large-image"
                     style={{borderRadius: '4px'}}
+                    alt=""
                     />
                 </Carousel.Item>
             </Carousel>
@@ -57,6 +61,7 @@ function SlideShow(){
                     className="d-block w-100 h-100"
                     src={Image1}
                     style={{borderRadius: '4px'}}
+                    alt=""
                     />
                 </Carousel.Item>
                 
@@ -65,6 +70,7 @@ function SlideShow(){
                     className="d-block w-100"
                     src={Image2}
                     style={{borderRadius: '4px'}}
+                    alt=""
                     />
                 </Carousel.Item>
             

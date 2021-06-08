@@ -18,6 +18,7 @@ mongoose.connect(
 
 // Components
 const UserRoutes = require('./Routes/UserRoutes');
+const ProductRoutes = require('./Routes/ProductRoutes');
 
 // Middlewares 
 app.use(cors());
@@ -25,6 +26,7 @@ app.use(express.json());
 
 // Route Middlewares
 app.use('/api/user', UserRoutes);
+app.use('/api/product', ProductRoutes);
 
 // Listening
 app.listen(PORT, () => {
