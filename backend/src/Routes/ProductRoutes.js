@@ -6,17 +6,17 @@ const jwt = require("jsonwebtoken");
 const Product = require('../Models/Product');
 const ValidateProduct = require("../Auth/ValidateProduct");
 
-router.post('/create', (req, res) => {
+router.post('/create', async(req, res) => {
     // VALIDATING OUR POST
 
     const { error } = ValidateProduct(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
-    // CHECKING IF OUR POST EXISTS
-    const titleExists = await User.findOne({title: req.body.title});
+    // CHECKING IF OUR PRODUCT EXISTS
+    const titleExists = await Product.findOne({title: req.body.title});
     if(titleExists) return res.status(400).send('Product Name Already Exists.');
 
-    // CREATING OUR NEW POST
+    // CREATING OUR NEW PRODUCT
     const product = new Product({
         title: req.body.title,
         description: req.body.description,
@@ -25,7 +25,7 @@ router.post('/create', (req, res) => {
         countInStock: req.body.countInStock
     });
 
-    // SAVING OUR POST AND SENDING IT
+    // SAVING OUR PRODUCT AND SENDING IT
     try{
         const savedProduct = await product.save();
         res.send(JSON.stringify(savedProduct));
@@ -58,21 +58,21 @@ router.get('/products', () => {
     })
 })
 
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', async(req, res) => {
     // FINDING OUT PRODUCT
     const product = Product.findById(req.params.id);
 
-    // VALIDATING OUR USER
+    // VALIDATING OUR PRODUCT
 
     const { error } = ValidateProduct(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    // CHECKING IF OUR USER EXISTS
+    // CHECKING IF OUR PRODUCT EXISTS
 
-    const titleExists = await User.findOne({ title: req.body.title });
-    if (titleExists) return res.status(400).send("Product name Already Exists.");
+    const titleExists = await Product.findOne({ title: req.body.title });
+    if (titleExists) return res.status(400).send("Product Name Already Exists.");
 
-    // UPDATING THE USER
+    // UPDATING THE PRODUCT 
 
     Product.updateOne(product, {
         title: req.body.title,
@@ -90,7 +90,7 @@ router.put('/update/:id', (req, res) => {
 
 router.delete('/delete/:id', (req, res) => {
     try{ 
-        const product = User.findByIdAndDelete(req.params.id);
+        const product = Product.findByIdAndDelete(req.params.id);
         res.send({ type: "Success", msg: "Successfully Deleted Product: " + product.title });
         console.log("Deleted Product: " + product.title);
     }

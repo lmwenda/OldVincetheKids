@@ -13,7 +13,7 @@ function App() {
   return (
       <BrowserRouter>
 
-        <Header title={"VincetheKid"} name={"Luke Mwenda"} />
+        <Header />
 
       <Switch>
         <Route path="/" component={Home} exact />

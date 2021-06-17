@@ -10,7 +10,7 @@ interface ProductTypes{
     title: string;
     description: string;
     image: string;
-    price: number; 
+    price: string; 
     countInStock: number;
 }
 
@@ -20,8 +20,8 @@ interface IProduct{
 
 function Product({ product }: IProduct){
     return(
-        <Card id="product" className="my-4 p-3 rounded">
-            <Link to={`/item/${product._id}`}> 
+        <Card style={{textDecoration: 'none'}} id="product" className="my-4 p-3 rounded">
+            <Link style={{textDecoration: 'none'}} to={`/item/${product._id}`}> 
                 <Card.Img id="images" src={product.image} />
             </Link>
 

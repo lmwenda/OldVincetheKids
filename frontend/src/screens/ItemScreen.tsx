@@ -8,8 +8,17 @@ import './Item/Item.css';
 // Components && Resources
 import products from "./Products/products";
 
+// type IProduct = {
+//     _id: number,
+//     title: string,
+//     description: string,
+//     image: string,
+//     price: string,
+//     countInStock: number
+// }
+
 function Item(props: any){
-    const product: any = products.find((p) => p._id == props.match.params.id);
+    const product: any = products.find((p) => p._id === props.match.params.id);
 
     function AddToCart(){
         
@@ -20,7 +29,7 @@ function Item(props: any){
             <Link to="/Shop" className="btn btn-light my-3">Go Back</Link>
             <Row>
                 <Col md={6} lg={6}>
-                    <Image src={product.image} alt={product.title} id="picture" fluid />
+                    <Image src={product.image} alt={""} id="picture" fluid />
                 </Col>
 
                 <Col id="passage" md={3}>

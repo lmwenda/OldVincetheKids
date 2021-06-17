@@ -23,4 +23,4 @@ const ProductSchema = new mongoose.Schema({
     countInStock: {type: Number, required: true}
 })
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Product', ProductSchema); 

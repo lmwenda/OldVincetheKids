@@ -42,17 +42,17 @@ export class Product{
             .catch(err => console.log(err));
     }
 
-    public getProduct(): any{
-        axios.get(`${BASE_URL}/product/item/${this._id}`)
-            .then(response => console.log(response))
-            .catch(err => console.log(err));
-    }
+    // public getProduct(): any{
+    //     axios.get(`${BASE_URL}/product/item/${this._id}`)
+    //         .then(response => console.log(response))
+    //         .catch(err => console.log(err));
+    // }
        
-    public getProducts(): any{
-        axios.get(`${BASE_URL}/product/products`)
-            .then(response => console.log(response))
-            .catch(err => console.log(err));
-    }
+    // public getProducts(): any{
+    //     axios.get(`${BASE_URL}/product/products`)
+    //         .then(response => console.log(response))
+    //         .catch(err => console.log(err));
+    // }
 
     public deleteProduct(): any{
         axios.delete(`${BASE_URL}/product/delete/${this._id}`)
