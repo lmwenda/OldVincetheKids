@@ -55,8 +55,10 @@ router.post('/login', async(req, res) => {
     if(!validPassword) return res.status(400).send("Invalid Email or Password.");
 
     // CREATING AND ASSIGNING A JWT TOKEN
-    const token = jwt.sign({ _id: user._id }, process.env.SECRET_TOKEN);
-    res.header('auth-token', token).send(token);
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET_TOKEN, {
+      expiresIn: '7 days'
+    });
+    res.header('verification-token', token).send(token);
 
     res.send("Welcome back " + user.name + " to VincetheKid!")
 });

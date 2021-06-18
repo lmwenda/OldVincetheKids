@@ -1,0 +1,48 @@
+@media(min-width: 1920px){
+
+    .login-form #title{
+        padding-top: 40px;
+    }
+    
+    .login-form{
+        height: 800px;
+    }
+
+    .login-form form{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 5px;
+        padding-top: 20px;
+    }
+
+    .login-form form #email{
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .login-form form #username{
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    .login-form form #password{
+        height: 50px;
+        margin-bottom: 20px;
+    }
+
+    .login-form form #submit{
+        transition: all 0.6s ease;
+        margin-top: 70px;
+        width: 480px;
+        border: none;
+        color: #fff;
+        border-radius: 10px;
+        height: 40px;
+        background:  #08a2e9;
+    }
+
+    .login-form form #submit:hover{
+        transition: all 0.6s ease;
+        background:  #087ce9;
+    }
+}
