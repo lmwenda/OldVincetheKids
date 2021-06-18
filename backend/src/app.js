@@ -25,7 +25,7 @@ app.use(cors());
 app.use(express.json());
 
 // Route Middlewares
-app.use('/api/user', UserRoutes);
+app.use('/api/users', UserRoutes);
 app.use('/api/product', ProductRoutes);
 
 // Listening

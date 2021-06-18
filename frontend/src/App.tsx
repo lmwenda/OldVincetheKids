@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Header from './components/Header';
 import CartScreen from "./screens/CartScreen";
 import ProductScreen from "./screens/ProductScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 function App() {
   return (
@@ -15,14 +16,15 @@ function App() {
 
         <Header />
 
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path={`/Shop/Cart`} component={CartScreen} exact />
-        <Route path="/item/:id" component={Item} exact />
-        <Route path="/Shop" component={ProductScreen} exact />
-      </Switch>
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path={`/Shop/Cart`} component={CartScreen} exact />
+          <Route path="/item/:id" component={Item} exact />
+          <Route path="/Shop" component={ProductScreen} exact />
+          <Route path="/register" component={RegisterScreen} exact />
+        </Switch>
 
-      <Footer title={"VincetheKids"} />
+        <Footer title={"VincetheKids"} />
 
     </BrowserRouter>
   );

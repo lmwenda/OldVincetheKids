@@ -28,8 +28,8 @@ router.post('/register', async (req, res) => {
 
     // CREATING OUR NEW USER
     const user = new User({
-        name: req.body.name,
         email: req.body.email,
+        username: req.body.username,
         password: hashedPassword
     });
 
@@ -58,7 +58,7 @@ router.post('/login', async(req, res) => {
     const token = jwt.sign({ _id: user._id }, process.env.SECRET_TOKEN);
     res.header('auth-token', token).send(token);
 
-    res.send("Welcome back " + user.name + " to our Services!")
+    res.send("Welcome back " + user.name + " to VincetheKid!")
 });
 
 // GETTING A SPECIFIC USER
