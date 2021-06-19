@@ -45,22 +45,32 @@ router.post('/register', async (req, res) => {
 
 // LOGIN ROUTE
 router.post('/login', async(req, res) => {
-
+  try {
     // CHECKING IF OUR USER'S EMAIL IS VALID
-    const user = await User.findOne({email: req.body.email});
-    if(!user) return res.status(400).send('Invalid Email or Password.');
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) return res.status(400).send("Invalid Email or Password.");
 
     // CHECKING IF OUR PASSWORD IS VALID
-    const validPassword = await bcrypt.compare(req.body.password, user.password);
-    if(!validPassword) return res.status(400).send("Invalid Email or Password.");
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword) {
+      console.log("Invalid Email or Password");
+      return res.status(400).send("Invalid Email or Password.");
+    }
 
     // CREATING AND ASSIGNING A JWT TOKEN
     const token = jwt.sign({ _id: user._id }, process.env.SECRET_TOKEN, {
-      expiresIn: '7 days'
+      expiresIn: "7 days",
     });
-    res.header('verification-token', token).send(token);
 
-    res.send("Welcome back " + user.name + " to VincetheKid!")
+    res.header("verification-token", token).send(token);
+
+    res.status(200).send("Welcome back, " + user.username);
+  } catch (err) {
+    res.status(400).send(err);
+  }
 });
 
 // GETTING A SPECIFIC USER

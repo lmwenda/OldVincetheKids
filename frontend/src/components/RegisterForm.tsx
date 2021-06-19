@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 
 import './Styles/RegisterForm.css';
@@ -14,6 +14,8 @@ interface ResponseState{
 function RegisterForm(props: any){
 
     /* eslint-disable @typescript-eslint/no-unused-vars */
+    const history = useHistory();
+
     const [ email, setEmail ] = React.useState<string>("");
     const [ username, setUsername ] = React.useState<string>("");
     const [ password, setPassword ] = React.useState<string>("");
@@ -35,7 +37,7 @@ function RegisterForm(props: any){
                 await new Promise(resolve => setTimeout(resolve, 3000));
                 setRequestResponse({ success: "", error: "" });
 
-                props.history.push('/login');
+                history.push('/login');
             })
             .catch(async(err: AxiosError) => {
                 try{

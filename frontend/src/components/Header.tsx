@@ -22,22 +22,27 @@ function Header(){
     React.useEffect(() => {
         if(token){
             const _id: any = jwt.decode(token);
-            setUser({ id: _id, username: '' });
 
-            axios.get(`http://localhost:5000/api/user/user/${user.id}`)
+            axios.get(`http://localhost:5000/api/users/user/${_id._id}`)
                 .then(response => {
-                    setUser({ username: response.data.username })
+                    console.log(response);
+                    setUser({ id: _id._id, username: response.data.username })
                 })
                 .catch(err => console.log(err));
         }else{
             return;
         }
-    }, [setUser, token, user.id])
+    }, [token, user.username, user.id])
+
+    const signOut = (props: any) => {
+        localStorage.removeItem("token");
+        props.window.reload();
+    }
 
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 
-            <Navbar.Brand href="#home">VincetheKid</Navbar.Brand>
+            <Navbar.Brand href="/">VincetheKid</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
 
@@ -69,8 +74,8 @@ function Header(){
 
                                     <NavDropdown.Divider />
                                     
-                                    <LinkContainer to="/user/signout">
-                                        <NavDropdown.Item>Sign Out</NavDropdown.Item>
+                                    <LinkContainer to="/login" style={{color: '#000', background: '#fff'}}>
+                                        <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>
                                     </LinkContainer>
                                 </div>
                             ) : null
@@ -84,8 +89,8 @@ function Header(){
                     user.id ? (
                         <Nav>
                             <Nav.Link>
-                                Welcome back 
-                                <span style={{fontWeight: 'bold', color: '#fff'}}>
+                                Welcome back,  
+                                <span style={{fontWeight: 'bold', color: '#fff', paddingLeft: '2px'}}>
                                     {user.username}
                                 </span> 
                             </Nav.Link>

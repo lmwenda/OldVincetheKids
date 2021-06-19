@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 
 import './Styles/LoginForm.css';
@@ -14,6 +14,8 @@ interface ResponseState{
 function LoginForm(props: any){
 
     /* eslint-disable @typescript-eslint/no-unused-vars */
+    const history = useHistory();
+
     const [ email, setEmail ] = React.useState<string>("");
     const [ password, setPassword ] = React.useState<string>("");
     const [ requestResponse, setRequestResponse ] = React.useState<ResponseState>({ success: '', error: '' })
@@ -28,14 +30,17 @@ function LoginForm(props: any){
         })
             .then(async response => {
                 console.log(response);
+                console.log(response.data)
 
-                localStorage.setItem("token", response.headers["verification-token"]);
+                // Setting JWT Token to LocalStorage
+                localStorage.setItem("token", response.data);
 
-                setRequestResponse({ success: 'Successfully Signed in.' });
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                setRequestResponse({ success: 'Successfully Signed in.', error: "" });
+                await new Promise(resolve => setTimeout(resolve, 1000));
                 setRequestResponse({ success: "", error: "" });
 
-                props.history.push('/login');
+                history.push('/');
+                window.location.reload();
             })
             .catch(async(err: AxiosError) => {
                 try{
