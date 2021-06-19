@@ -35,9 +35,6 @@ function Item(props: any){
                 <Col id="passage" md={3}>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
-
-                        </ListGroup.Item>
-                        <ListGroup.Item>
                             <h3>{product.title}</h3>
                         </ListGroup.Item>
 

@@ -26,9 +26,9 @@ function Product({ product }: IProduct){
             </Link>
 
             <Card.Body>
-                <Link to={`/item/${product._id}`}>
+                <Link style={{color: '#000', textDecoration: 'none'}} to={`/item/${product._id}`}>
                     <Card.Title>
-                        <strong id="title" style={{color: '#000', textDecoration: 'none'}}>
+                        <strong id="title">
                             {product.title}
                         </strong>
                     </Card.Title>
