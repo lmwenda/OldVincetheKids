@@ -62,7 +62,7 @@ router.post('/login', async(req, res) => {
 
     // CREATING AND ASSIGNING A JWT TOKEN
     const token = jwt.sign({ _id: user._id }, process.env.SECRET_TOKEN, {
-      expiresIn: "7 days",
+      expiresIn: "7 Days",
     });
 
     res.header("verification-token", token).send(token);
@@ -86,33 +86,38 @@ router.get('/user/:id', async(req, res) => {
 
 // Updating User Account Details
 router.put("/me/:id", async (req, res) => {
-  const user = User.findById(req.params.id);
+  try{
+    const user = User.findById(req.params.id);
 
-  // VALIDATING OUR USER
-
-  const { error } = ValidateUpdatedUser(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  // CHECKING IF OUR USER EXISTS
-
-  const emailExists = await User.findOne({ email: req.body.email });
-  if (emailExists) return res.status(400).send("Email Already Exists.");
-
-  // HASHING PASSWORD 
-
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
- // UPDATING THE USER
-
-  User.updateOne(user, {
-    email: req.body.email,
-    username: req.body.username,
-    password: hashedPassword,
-  })
-    .then(console.log("Updated Account."))
-    .then(res.status(200).send("Updated Account."))
-    .catch(err => res.status(400).send(err));
+    // VALIDATING OUR USER
+  
+    const { error } = ValidateUpdatedUser(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+  
+    // CHECKING IF OUR USER EXISTS
+  
+    const emailExists = await User.findOne({ email: req.body.email });
+    if (emailExists) return res.status(400).send("Email Already Exists.");
+  
+    // HASHING PASSWORD 
+  
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  
+   // UPDATING THE USER
+  
+    User.updateOne(user, {
+      email: req.body.email,
+      username: req.body.username,
+      password: hashedPassword,
+    })
+      .then(console.log("Updated Account."))
+      .then(res.status(200).send("Updated Account."))
+      .catch(err => res.status(400).send(err));
+  } catch(err){
+    console.log(err);
+    res.send(err);
+  }
 
 });
 

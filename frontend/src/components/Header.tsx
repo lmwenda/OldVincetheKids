@@ -68,7 +68,7 @@ function Header(){
                         { 
                             user.id ? (
                                 <div>
-                                    <LinkContainer to="/user/settings">
+                                    <LinkContainer to={`/user/settings/${user.id}`}>
                                         <NavDropdown.Item>Settings</NavDropdown.Item>
                                     </LinkContainer>
 

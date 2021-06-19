@@ -11,6 +11,5 @@
 
 .checkout:hover{
     transition: all 0.6s ease;
-    background: #fff;
-    color: #000;
+    background: rgb(22, 22, 22);
 }
