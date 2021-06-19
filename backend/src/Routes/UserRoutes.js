@@ -13,7 +13,7 @@ const { ValidateUpdatedUser }  = require('../Auth/ValidateUpdatedUser');
 
 // REGISTER ROUTE
 router.post('/register', async (req, res) => {
-
+  try{
     // VALIDATING OUR USER
     const { error } = ValidateUser(req.body);
     if(error) return res.status(400).send(error.details[0].message);
@@ -40,7 +40,9 @@ router.post('/register', async (req, res) => {
     } catch(err){
         res.status(400).send(err);
     }
-
+  }catch(err){
+    console.log(err);
+  }
 });
 
 // LOGIN ROUTE
@@ -94,11 +96,6 @@ router.put("/me/:id", async (req, res) => {
     const { error } = ValidateUpdatedUser(req.body);
     if (error) return res.status(400).send(error.details[0].message);
   
-    // CHECKING IF OUR USER EXISTS
-  
-    const emailExists = await User.findOne({ email: req.body.email });
-    if (emailExists) return res.status(400).send("Email Already Exists.");
-  
     // HASHING PASSWORD 
   
     const salt = await bcrypt.genSalt(10);
@@ -107,18 +104,16 @@ router.put("/me/:id", async (req, res) => {
    // UPDATING THE USER
   
     User.updateOne(user, {
-      email: req.body.email,
       username: req.body.username,
       password: hashedPassword,
     })
-      .then(console.log("Updated Account."))
-      .then(res.status(200).send("Updated Account."))
+      .then(console.log("Successfully Updated Account."))
+      .then(res.status(200).send("Successfully Updated Account."))
       .catch(err => res.status(400).send(err));
   } catch(err){
-    console.log(err);
-    res.send(err);
+      console.log(err);
+      res.send(err);
   }
-
 });
 
 // Setting an Admin
@@ -136,11 +131,11 @@ router.put("/setadmin/:id", async (req, res) => {
 });
 
 // Deleting a User
-router.delete('/user/:id', (req, res) => {
+router.delete('/delete/user/:id', async(req, res) => {
     try{ 
-        const user = User.findByIdAndDelete(req.params._id);
-        res.send("Deleted User: " + user.name);
-        console.log("Deleted User: " + user.name);
+        const user = await User.findByIdAndDelete(req.params.id);
+        res.send("Deleted User: " + user.username);
+        console.log("Deleted User: " + user.username);
     }
     catch(err){
         res.json({ message: err })

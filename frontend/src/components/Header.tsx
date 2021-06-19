@@ -53,7 +53,7 @@ function Header(){
                     </LinkContainer>
 
 
-                    <LinkContainer to="/Shop">
+                    <LinkContainer to="/store   ">
                         <Nav.Link>Shop</Nav.Link>
                     </LinkContainer>
 
@@ -61,7 +61,7 @@ function Header(){
 
                     <NavDropdown title="Extras" id="basic-nav-dropdown">
 
-                        <LinkContainer to={`/Shop/Cart`}>
+                        <LinkContainer to={`/store/cart`}>
                             <NavDropdown.Item>Cart(0)</NavDropdown.Item>
                         </LinkContainer>
 

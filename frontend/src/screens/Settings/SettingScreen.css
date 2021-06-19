@@ -1,0 +1,28 @@
+.usersettings {
+    display: flex;
+  }
+  .usersettings .usersettings_sidebar {
+    margin-top: 80px;
+    padding-top: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    color: #000;
+    text-align: center;
+    height: 100vh;
+    flex: 0.25;
+  }
+  .usersettings .usersettings_sidebar > div {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  .usersettings .usersettings_sidebar > hr {
+    background: #000;
+    height: 2px;
+  }
+  .usersettings .usersettings_main {
+    margin-top: 60px;
+    background-color: #eee;
+    flex: 0.75;
+    height: 100vh;
+  }
